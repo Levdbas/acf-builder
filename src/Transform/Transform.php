@@ -10,7 +10,7 @@ use StoutLogic\AcfBuilder\Builder;
 abstract class Transform
 {
     /**
-     * Used to call funtions on the builder.
+     * Used to call functions on the builder.
      * @var \StoutLogic\AcfBuilder\Builder
      */
     private $builder;
@@ -32,7 +32,7 @@ abstract class Transform
     }
 
     /**
-     * Impelment in all discrete classes
+     * Implement in all discrete classes
      * @param  array $config input
      * @return array output config
      */

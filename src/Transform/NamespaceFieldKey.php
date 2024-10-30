@@ -47,7 +47,7 @@ class NamespaceFieldKey extends RecursiveTransform
         $groupName = $this->getBuilder()->getName();
 
         if ($groupName) {
-            // remove field_ or group_ if already at the begining of the key
+            // remove field_ or group_ if already at the beginning of the key
             $value = preg_replace('/^field_|^group_/', '', $value);
             $namespace .= str_replace(' ', '_', $groupName) . '_';
         }
