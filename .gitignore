@@ -1,7 +1,9 @@
 vendor
 node_modules
 .idea
+.vscode
 .stignore
 .stversions
 .stfolder
 .phpunit.result.cache
+
