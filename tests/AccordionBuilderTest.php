@@ -12,7 +12,7 @@ class AccordionBuilderTest extends TestCase
 
     public function testClassExists()
     {
-        $this->assertTrue(class_exists('StoutLogic\AcfBuilder\AccordionBuilder'));
+        $this->assertTrue(class_exists(\StoutLogic\AcfBuilder\AccordionBuilder::class));
     }
 
     public function testCreateTabBuilder()

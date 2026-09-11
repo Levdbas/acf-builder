@@ -12,7 +12,7 @@ class FieldBuilderTest extends TestCase
 
     public function testClassExists()
     {
-        $this->assertTrue(class_exists('StoutLogic\AcfBuilder\FieldBuilder'));
+        $this->assertTrue(class_exists(\StoutLogic\AcfBuilder\FieldBuilder::class));
     }
 
     public function testGetName()

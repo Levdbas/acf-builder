@@ -10,18 +10,15 @@ use StoutLogic\AcfBuilder\Builder;
 abstract class Transform
 {
     /**
-     * Used to call functions on the builder.
-     *
-     * @var \StoutLogic\AcfBuilder\Builder
-     */
-    private $builder;
-
-    /**
      * @param Builder $builder
      */
-    public function __construct(Builder $builder)
+    public function __construct(
+        /**
+         * Used to call functions on the builder.
+         */
+        private readonly Builder $builder
+    )
     {
-        $this->builder = $builder;
     }
 
     /**

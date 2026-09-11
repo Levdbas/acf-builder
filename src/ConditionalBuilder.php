@@ -126,10 +126,10 @@ class ConditionalBuilder extends ParentDelegationBuilder
     public function __call($methodName, $arguments)
     {
         if ($methodName === 'and') {
-            list($name, $operator, $value) = $arguments;
+            [$name, $operator, $value] = $arguments;
             return $this->andCondition($name, $operator, $value);
         } elseif ($methodName === 'or') {
-            list($name, $operator, $value) = $arguments;
+            [$name, $operator, $value] = $arguments;
             return $this->orCondition($name, $operator, $value);
         } else {
             return parent::__call($methodName, $arguments);

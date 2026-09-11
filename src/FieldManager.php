@@ -11,18 +11,15 @@ use StoutLogic\AcfBuilder\Exceptions\FieldNotFoundException;
 class FieldManager
 {
     /**
-     * Array of fields
-     *
-     * @var array
-     */
-    private $fields;
-
-    /**
      * @param array $fields optional default array of field configs.
      */
-    public function __construct($fields = [])
+    public function __construct(
+        /**
+         * Array of fields
+         */
+        private $fields = []
+    )
     {
-        $this->fields = $fields;
     }
 
     /**
@@ -143,7 +140,7 @@ class FieldManager
     {
         try {
             $this->getFieldIndex($name);
-        } catch (FieldNotFoundException $e) {
+        } catch (FieldNotFoundException) {
             return false;
         }
 

@@ -10,7 +10,7 @@ class FieldNameCollisionExceptionTest extends TestCase
 {
     public function testClassExists()
     {
-        $this->assertTrue(class_exists('StoutLogic\AcfBuilder\Exceptions\FieldNameCollisionException'));
+        $this->assertTrue(class_exists(\StoutLogic\AcfBuilder\Exceptions\FieldNameCollisionException::class));
     }
 
     public function testExceptionThrownDuringFieldNameCollision()

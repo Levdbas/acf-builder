@@ -14,21 +14,21 @@ class ConditionalLogicTest extends TestCase
 
     public function testIsIterative()
     {
-        $builder = $this->prophesize('\StoutLogic\AcfBuilder\FieldsBuilder');
+        $builder = $this->prophesize(\StoutLogic\AcfBuilder\FieldsBuilder::class);
         $transform = new Transform\ConditionalLogic($builder->reveal());
-        $this->assertInstanceOf('\StoutLogic\AcfBuilder\Transform\IterativeTransform', $transform);
+        $this->assertInstanceOf(\StoutLogic\AcfBuilder\Transform\IterativeTransform::class, $transform);
     }
 
     public function testGetKeys()
     {
-        $builder = $this->prophesize('\StoutLogic\AcfBuilder\FieldsBuilder');
+        $builder = $this->prophesize(\StoutLogic\AcfBuilder\FieldsBuilder::class);
         $transform = new Transform\ConditionalLogic($builder->reveal());
         $this->assertSame(['conditional_logic'], $transform->getKeys());
     }
 
     public function testTransformValue()
     {
-        $field = $this->prophesize('\StoutLogic\AcfBuilder\FieldBuilder');
+        $field = $this->prophesize(\StoutLogic\AcfBuilder\FieldBuilder::class);
         $field
             ->getKey()
             ->willReturn('field_name');
@@ -36,7 +36,7 @@ class ConditionalLogicTest extends TestCase
             ->hasCustomKey()
             ->willReturn(false);
 
-        $builder = $this->prophesize('\StoutLogic\AcfBuilder\FieldsBuilder');
+        $builder = $this->prophesize(\StoutLogic\AcfBuilder\FieldsBuilder::class);
         $builder
             ->getField('name')
             ->willReturn($field->reveal());

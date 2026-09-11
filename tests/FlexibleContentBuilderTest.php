@@ -76,7 +76,7 @@ class FlexibleContentBuilderTest extends TestCase
 
     public function testAddingFieldsBuilderAsLayout()
     {
-        $banner = $this->getMockBuilder('StoutLogic\AcfBuilder\FieldsBuilder')
+        $banner = $this->getMockBuilder(\StoutLogic\AcfBuilder\FieldsBuilder::class)
                         ->setConstructorArgs(['parent'])
                         ->getMock();
 
@@ -134,7 +134,7 @@ class FlexibleContentBuilderTest extends TestCase
 
     public function testEndFlexibleContent()
     {
-        $fieldsBuilder = $this->getMockBuilder('StoutLogic\AcfBuilder\FieldsBuilder')
+        $fieldsBuilder = $this->getMockBuilder(\StoutLogic\AcfBuilder\FieldsBuilder::class)
                               ->setConstructorArgs(['parent'])
                               ->getMock();
 
@@ -155,7 +155,7 @@ class FlexibleContentBuilderTest extends TestCase
 
     public function testSetLocation()
     {
-        $fieldsBuilder = $this->getMockBuilder('StoutLogic\AcfBuilder\FieldsBuilder')
+        $fieldsBuilder = $this->getMockBuilder(\StoutLogic\AcfBuilder\FieldsBuilder::class)
                               ->setConstructorArgs(['parent'])
                               ->getMock();
 
@@ -209,7 +209,7 @@ class FlexibleContentBuilderTest extends TestCase
 
     public function testAddLayouts()
     {
-        $banner = $this->getMockBuilder('StoutLogic\AcfBuilder\FieldsBuilder')
+        $banner = $this->getMockBuilder(\StoutLogic\AcfBuilder\FieldsBuilder::class)
             ->setConstructorArgs(['parent'])
             ->getMock();
 

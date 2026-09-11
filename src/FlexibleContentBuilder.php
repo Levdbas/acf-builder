@@ -200,9 +200,7 @@ class FlexibleContentBuilder extends FieldBuilder
      */
     public function getLayout($name)
     {
-        $layouts = array_filter($this->getLayouts(), static function (FieldsBuilder $layout) use ($name) {
-            return $layout->getName() === $name;
-        });
+        $layouts = array_filter($this->getLayouts(), static fn(FieldsBuilder $layout) => $layout->getName() === $name);
 
         if (count($layouts) === 0) {
             throw new LayoutNotFoundException("Layout `{$name}` not found.");
@@ -235,9 +233,7 @@ class FlexibleContentBuilder extends FieldBuilder
             throw new LayoutNotFoundException("Layout `{$name}` not found.");
         }
 
-        $this->layouts = array_values(array_filter($this->getLayouts(), static function (FieldsBuilder $layout) use ($name) {
-            return $layout->getName() !== $name;
-        }));
+        $this->layouts = array_values(array_filter($this->getLayouts(), static fn(FieldsBuilder $layout) => $layout->getName() !== $name));
 
         return $this;
     }
@@ -251,9 +247,7 @@ class FlexibleContentBuilder extends FieldBuilder
      */
     public function layoutExists($name)
     {
-        $layouts = array_filter($this->getLayouts(), static function (FieldsBuilder $layout) use ($name) {
-            return $layout->getName() === $name;
-        });
+        $layouts = array_filter($this->getLayouts(), static fn(FieldsBuilder $layout) => $layout->getName() === $name);
 
         return count($layouts) !== 0;
     }

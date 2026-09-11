@@ -53,13 +53,6 @@ namespace StoutLogic\AcfBuilder;
 class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 {
     /**
-     * Field Type
-     *
-     * @var string
-     */
-    private $type;
-
-    /**
      * Additional Field Configuration
      *
      * @var array
@@ -71,14 +64,15 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
      * @param string $type Field Type.
      * @param array  $config Additional Field Configuration.
      */
-    public function __construct($name, $type, $config = [])
+    public function __construct($name, /**
+                                        * Field Type
+                                        */
+    private $type, $config = [])
     {
         $this->config = [
             'name' => $name,
             'label' => $this->generateLabel($name),
         ];
-
-        $this->type = $type;
         $this->setKey($name);
         $this->updateConfig($config);
     }
@@ -333,11 +327,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
      */
     public function getWrapper()
     {
-        if (isset($this->config['wrapper'])) {
-            return $this->config['wrapper'];
-        }
-
-        return [];
+        return $this->config['wrapper'] ?? [];
     }
 
     /**
@@ -388,12 +378,12 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     public function setSelector($css_selector)
     {
         // if # is the first sign - we start with ID.
-        if (0 === strpos($css_selector, '#')) {
+        if (str_starts_with($css_selector, '#')) {
             $css_selector .= '.'; // prevent empty second part.
-            list($id, $class) = explode('.', $css_selector, 2);
+            [$id, $class] = explode('.', $css_selector, 2);
         } else {
             $css_selector .= '#'; // prevent empty second part.
-            list($class, $id) = explode('#', $css_selector, 2);
+            [$class, $id] = explode('#', $css_selector, 2);
         }
 
         $id = trim($id, '#');

@@ -34,13 +34,6 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      */
     protected $location;
 
-    /**
-     * Field Group Name
-     *
-     * @var string
-     */
-    protected $name;
-
     const DEEP_NESTING_DELIMITER = '->';
 
     /**
@@ -50,12 +43,16 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      * @param array  $groupConfig Field Group configuration.
      * @api
      */
-    public function __construct($name, array $groupConfig = [])
-    {
+    public function __construct(
+        /**
+         * Field Group Name
+         */
+        protected $name,
+        array $groupConfig = []
+    ) {
         $this->fieldManager = new FieldManager();
-        $this->name = $name;
-        $this->setGroupConfig('key', $name);
-        $this->setGroupConfig('title', $this->generateLabel($name));
+        $this->setGroupConfig('key', $this->name);
+        $this->setGroupConfig('title', $this->generateLabel($this->name));
 
         $this->config = array_merge($this->config, $groupConfig);
     }
@@ -126,7 +123,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      */
     private function namespaceGroupKey($key)
     {
-        if (strpos($key, 'group_') !== 0) {
+        if (!str_starts_with($key, 'group_')) {
             $key = 'group_' . $key;
         }
         return $key;
@@ -160,9 +157,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      */
     private function buildFields()
     {
-        $fields = array_map(function ($field) {
-            return ($field instanceof Builder) ? $field->build() : $field;
-        }, $this->getFields());
+        $fields = array_map(fn($field) => ($field instanceof Builder) ? $field->build() : $field, $this->getFields());
 
         return $this->transformFields($fields);
     }
@@ -1554,7 +1549,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      */
     private function hasDeeplyNestedField($name)
     {
-        return strpos($name, static::DEEP_NESTING_DELIMITER) !== false;
+        return str_contains($name, static::DEEP_NESTING_DELIMITER);
     }
 
     /**

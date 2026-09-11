@@ -12,7 +12,7 @@ trait CanSingularize
      */
     protected function singularize($value)
     {
-        if (class_exists('\Doctrine\Inflector\InflectorFactory')) {
+        if (class_exists(\Doctrine\Inflector\InflectorFactory::class)) {
             return \Doctrine\Inflector\InflectorFactory::create()->build()->singularize($value);
         }
 
