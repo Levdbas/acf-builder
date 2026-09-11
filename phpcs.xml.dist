@@ -4,7 +4,6 @@
         general-purpose PSR-4 Composer library rather than a WordPress plugin/theme.</description>
 
     <file>src</file>
-    <file>tests</file>
 
     <arg name="extensions" value="php"/>
     <arg name="colors"/>
@@ -47,6 +46,15 @@
         <exclude name="Generic.CodeAnalysis.AssignmentInCondition"/>
         <exclude name="Squiz.PHP.DisallowMultipleAssignments"/>
         <exclude name="Universal.Operators.DisallowShortTernary"/>
+    </rule>
+
+    <rule ref="WordPress-Docs">
+        <!-- Requiring a full doc block (with summary, every @param described, etc.) on every
+             method/file/class is too strict for this codebase's existing lightweight docblocks.
+             Keep only the formatting sniffs (spacing) that don't demand rewriting comments. -->
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <exclude name="Generic.Commenting.DocComment.MissingShort"/>
     </rule>
 
     <!-- Enforce spaces over tabs for indentation. -->

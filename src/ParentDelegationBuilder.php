@@ -5,18 +5,21 @@ namespace StoutLogic\AcfBuilder;
 /**
  * Builds a configuration.
  * Can have parent contexts to delegate missing methods to.
+ *
  * @api
  */
 abstract class ParentDelegationBuilder implements Builder
 {
     /**
      * The parent Builder, if this is a child Builder
+     *
      * @var Builder
      */
     private $parentContext;
 
     /**
      * Builds the configuration
+     *
      * @return array configuration
      * @api
      */
@@ -47,6 +50,7 @@ abstract class ParentDelegationBuilder implements Builder
 
     /**
      * Returns the root context
+     *
      * @return Builder
      * @api
      */
@@ -65,9 +69,10 @@ abstract class ParentDelegationBuilder implements Builder
     /**
      * If a method is missing, check to see if it exist on the $parentContext
      * and delegate the call to it.
+     *
      * @param  string $method
-     * @param  array $args
-     * @throws \Exception when a method is not found on the $parentContext
+     * @param  array  $args
+     * @throws \Exception When a method is not found on the $parentContext.
      * @return mixed
      * @api
      */

@@ -11,6 +11,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
 {
     /**
      * Conditional Rules
+     *
      * @var array[array]
      */
     private $config = [[]];
@@ -31,6 +32,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
 
     /**
      * Build the config
+     *
      * @return array
      * @api
      */
@@ -41,6 +43,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
 
     /**
      * Creates an AND condition
+     *
      * @param  string $name
      * @param  string $operator
      * @param  string $value
@@ -58,6 +61,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
 
     /**
      * Creates an OR condition
+     *
      * @param  string $name
      * @param  string $operator
      * @param  string $value
@@ -74,6 +78,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
 
     /**
      * Creates a condition
+     *
      * @param  string $name
      * @param  string $operator
      * @param  string $value
@@ -90,6 +95,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
 
     /**
      * Removes and returns the last top level OR condition
+     *
      * @return array
      */
     protected function popOrCondition()
@@ -99,6 +105,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
 
     /**
      * Adds a top level OR condition
+     *
      * @param  array $condition
      * @return void
      */
@@ -110,8 +117,9 @@ class ConditionalBuilder extends ParentDelegationBuilder
     /**
      * Allow the use of reserved words and / or for methods. If `and` or `or`
      * are not matched, call the method on the parentContext
+     *
      * @param string $methodName
-     * @param array $arguments
+     * @param array  $arguments
      * @return mixed
      * @api
      */

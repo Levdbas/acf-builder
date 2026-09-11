@@ -4,6 +4,7 @@ namespace StoutLogic\AcfBuilder;
 
 /**
  * Builds configurations for an ACF Field
+ *
  * @method FieldBuilder addField(string $name, string $type, array $args = [])
  * @method FieldBuilder addFields(FieldsBuilder|array $fields)
  * @method FieldBuilder addChoiceField(string $name, string $type, array $args = [])
@@ -53,12 +54,14 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 {
     /**
      * Field Type
+     *
      * @var string
      */
     private $type;
 
     /**
      * Additional Field Configuration
+     *
      * @var array
      */
     private $config;
@@ -66,7 +69,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     /**
      * @param string $name Field Name, conventionally 'snake_case'.
      * @param string $type Field Type.
-     * @param array $config Additional Field Configuration.
+     * @param array  $config Additional Field Configuration.
      */
     public function __construct($name, $type, $config = [])
     {
@@ -95,7 +98,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
      * Set a config key -> value pair
      *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
      * @return $this
      * @example
      *
@@ -166,6 +169,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Will prepend `field_` if missing.
+     *
      * @param string $key
      * @return $this
      * @api
@@ -207,6 +211,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Will set field required.
+     *
      * @return $this
      * @example
      *
@@ -222,6 +227,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Will set field unrequired.
+     *
      * @return $this
      * @api
      */
@@ -232,6 +238,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Will set field's label.
+     *
      * @param string $label
      * @return $this
      * @api
@@ -243,6 +250,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Will set field's instructions.
+     *
      * @param string $instructions
      * @return $this
      * @example
@@ -259,6 +267,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Will set field's defaultValue.
+     *
      * @param string $defaultValue
      * @return $this
      * @example
@@ -278,10 +287,11 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
      * field will display or not. You can add `or` or `and` calls after
      * to build complex logic. Any other function call will return you to the
      * parentContext.
+     *
      * @param  string $name Dependent field name
-     *                      (choice type: radio, checkbox, select, trueFalse)
-     * @param  string $operator ==, !=
-     * @param  string $value    1 or choice value
+     *                      (choice type: radio, checkbox, select, trueFalse).
+     * @param  string $operator ==, !=.
+     * @param  string $value    1 or choice value.
      * @return ConditionalBuilder
      * @example
      *
@@ -349,7 +359,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     /**
      * Set specified Attr of a Wrapper container
      *
-     * @param string $name Attribute name, ex. 'class'.
+     * @param string      $name Attribute name, ex. 'class'.
      * @param string|null $value Attribute value, ex. 'my-class'.
      *
      * @return FieldBuilder
@@ -403,6 +413,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Build the field configuration array
+     *
      * @return array Field configuration array
      * @example
      *
@@ -428,6 +439,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Create a field label based on the field's name. Generates title case.
+     *
      * @param  string $name
      * @return string label
      */
@@ -438,6 +450,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Generates a snaked cased name.
+     *
      * @param  string $name
      * @return string
      */

@@ -10,6 +10,9 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
  */
 class ConditionalField extends RecursiveTransform
 {
+    /**
+     * @var array
+     */
     protected $keys = ['field'];
 
     /**
@@ -28,6 +31,12 @@ class ConditionalField extends RecursiveTransform
         return parent::getBuilder();
     }
 
+    /**
+     * Replace a field name with its key if the field exists.
+     *
+     * @param mixed $value
+     * @return mixed
+     */
     public function transformValue($value)
     {
         if ($this->getBuilder()->fieldExists($value)) {
@@ -37,6 +46,13 @@ class ConditionalField extends RecursiveTransform
         return $value;
     }
 
+    /**
+     * Flag the config as having a custom key, or as referencing a field
+     * that doesn't exist yet.
+     *
+     * @param array $config
+     * @return array
+     */
     public function transformConfig($config)
     {
         if ($this->getBuilder()->fieldExists($config['field']) && $this->getBuilder()->getField($config['field'])->hasCustomKey()) {
@@ -48,6 +64,13 @@ class ConditionalField extends RecursiveTransform
         return $config;
     }
 
+    /**
+     * Determine whether the given key/config pair should be transformed.
+     *
+     * @param string $key
+     * @param array  $config
+     * @return bool
+     */
     public function shouldTransformValue($key, $config)
     {
         return parent::shouldTransformValue($key, $config) && !(array_key_exists('_has_custom_key', $config) && $config['_has_custom_key'] === true);

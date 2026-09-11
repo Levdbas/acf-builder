@@ -6,6 +6,7 @@ trait CanSingularize
 {
     /**
      * Return a singularized string.
+     *
      * @param  string $value
      * @return string
      */

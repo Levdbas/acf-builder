@@ -46,8 +46,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     /**
      * Create a field-group builder.
      *
-     * @param string $name Field Group name
-     * @param array  $groupConfig Field Group configuration
+     * @param string $name Field Group name.
+     * @param array  $groupConfig Field Group configuration.
      * @api
      */
     public function __construct($name, array $groupConfig = [])
@@ -107,11 +107,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
-
-     * @api
-     */
-
-    /**
+     * Get the name of the field group.
+     *
      * @return string
      * @api
      */
@@ -124,7 +121,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      * Namespace a group key
      * Append the namespace 'group' before the set key.
      *
-     * @param  string $key Field Key
+     * @param  string $key Field Key.
      * @return string      Field Key
      */
     private function namespaceGroupKey($key)
@@ -238,8 +235,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *
      * @param string $name
      * @param string $type
-     * @param array  $args field configuration
-     * @throws FieldNameCollisionException if name already exists.
+     * @param array  $args field configuration.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      *
      * @example
@@ -257,9 +254,9 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      * Add a field of a choice type, allows choices to be added.
      *
      * @param string $name
-     * @param string $type  can be `select`, `radio`, `checkbox`
-     * @param array  $args field configuration
-     * @throws FieldNameCollisionException if name already exists.
+     * @param string $type  can be `select`, `radio`, `checkbox`.
+     * @param array  $args field configuration.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -299,7 +296,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $prepend Text displayed before the input.
      *     @type string $append Text displayed after the input.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -332,7 +329,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $placeholder Placeholder text.
      *     @type int|string $rows Number of textarea rows.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -367,7 +364,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $prepend Text displayed before the input.
      *     @type string $append Text displayed after the input.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -399,7 +396,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $prepend Text displayed before the input.
      *     @type string $append Text displayed after the input.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -429,7 +426,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $default_value Default value of the field.
      *     @type string $placeholder Placeholder text.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -457,7 +454,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $prepend Text displayed before the input.
      *     @type string $append Text displayed after the input.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -488,7 +485,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $media_upload Whether to allow the media upload button.
      *     @type int $delay Delay initialization of the editor for performance.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -518,7 +515,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|string $width Embed width.
      *     @type int|string $height Embed height.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -550,7 +547,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int $max_size Maximum file size in megabytes.
      *     @type string $mime_types Comma separated list of allowed file types.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -588,7 +585,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int $max_size Maximum file size in megabytes.
      *     @type string $mime_types Comma separated list of allowed file types.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -629,7 +626,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int $max_size Maximum file size in megabytes.
      *     @type string $mime_types Comma separated list of allowed file types.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -670,7 +667,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $ui_on_text Text shown inside the switch when on.
      *     @type string $ui_off_text Text shown inside the switch when off.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -691,14 +688,13 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a select field.
+     *
      * @param string $name
      * @param array  $args {
      *      Field configuration options.
      *
      *     @type array<string, string> $choices Array of choice value => label pairs.
-     *     @type string|array $default_value Default selected value(s).
-     *     @type string $return_format Format of the returned value: `value` or `label`.
-     *     @type int|bool $multiple Whether multiple values can be selected.
      *     @type int|bool $allow_null Whether to allow an empty selection.
      *     @type int|bool $ui Whether to use the stylized Select2 UI.
      *     @type int|bool $ajax Whether to load choices via AJAX.
@@ -706,7 +702,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $create_options Whether users can create new choices.
      *     @type int|bool $save_options Whether newly created choices are saved to the field.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -731,6 +727,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a radio field.
+     *
      * @param string $name
      * @param array  $args {
      *      Field configuration options.
@@ -743,7 +741,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $save_other_choice Whether to save the custom "other" choice to the field's choices.
      *     @type string $layout Layout of the radio buttons: `vertical` or `horizontal`.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -766,6 +764,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a checkbox field.
+     *
      * @param string $name
      * @param array  $args {
      *      Field configuration options.
@@ -779,7 +779,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $toggle Whether to display an "select all" toggle.
      *     @type string $custom_choice_button_text Text for the button used to add a new custom choice.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -802,6 +802,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a button group field.
+     *
      * @param string $name
      * @param array  $args {
      *      Field configuration options.
@@ -812,7 +814,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $allow_null Whether to allow an empty selection.
      *     @type string $layout Layout of the buttons: `vertical` or `horizontal`.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -847,7 +849,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $ui Whether to use the stylized Select2 UI.
      *     @type array $bidirectional_target Field(s) to update on the related post.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -881,7 +883,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $multiple Whether multiple pages can be selected.
      *     @type int|bool $allow_archives Whether post type archive URLs are selectable.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -918,7 +920,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int $max Maximum number of posts allowed.
      *     @type array $bidirectional_target Field(s) to update on the related post.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -958,7 +960,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $allow_null Whether to allow an empty selection.
      *     @type array $bidirectional_target Field(s) to update on the related term.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -993,7 +995,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $allow_null Whether to allow an empty selection.
      *     @type array $bidirectional_target Field(s) to update on the related user.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1025,7 +1027,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int $first_day First day of the week in the date picker, 0 (Sunday) to 6 (Saturday).
      *     @type int|bool $default_to_current_date Whether to default to the current date.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1055,7 +1057,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $display_format Format used to display the time in the admin, e.g. `g:i a`.
      *     @type string $return_format Format of the returned value.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1084,7 +1086,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int $first_day First day of the week in the date picker, 0 (Sunday) to 6 (Saturday).
      *     @type int|bool $default_to_current_date Whether to default to the current date and time.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1118,7 +1120,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string|array $palette_colors Colors available in the custom palette.
      *     @type bool $show_color_wheel Whether to display the color wheel/picker.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1148,7 +1150,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|string $zoom Default zoom level.
      *     @type int|string $height Height of the map in pixels.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1176,7 +1178,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *
      *     @type string $return_format Format of the returned value: `array` or `url`.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1204,7 +1206,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $prepend Text displayed before the input.
      *     @type string $append Text displayed after the input.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1226,14 +1228,14 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      * All fields added after will appear under this tab, until another tab
      * is added.
      *
-     * @param string $label Tab label
+     * @param string $label Tab label.
      * @param array  $args {
      *      Field configuration options.
      *
      *     @type string $placement Where the tabs are displayed: `top` or `left`.
      *     @type int|bool $endpoint Whether this tab ends the current tab group.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1255,7 +1257,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      * All fields added after will appear under this accordion, until
      * another accordion is added.
      *
-     * @param string $label Accordion label
+     * @param string $label Accordion label.
      * @param array  $args {
      *      Field configuration options.
      *
@@ -1263,7 +1265,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $multi_expand Whether multiple accordions can be open at once.
      *     @type int|bool $endpoint Whether this accordion ends the current accordion group.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return AccordionBuilder
      * @example
      *
@@ -1290,7 +1292,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|bool $esc_html Whether to escape HTML in the message.
      *     @type string $new_lines How new lines are rendered: `wpautop`, `br`, or empty for none.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FieldBuilder
      * @example
      *
@@ -1323,7 +1325,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type array $sub_fields Sub fields belonging to the group.
      *     @type string $layout Layout of the group: `block`, `table`, or `row`.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return GroupBuilder
      * @example
      *
@@ -1355,7 +1357,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type string $button_label Text for the button used to add a new row.
      *     @type string $collapsed Sub field key used as the label when a row is collapsed.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return RepeaterBuilder
      * @example
      *
@@ -1391,7 +1393,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *     @type int|string $max Maximum number of layouts allowed.
      *     @type string $button_label Text for the button used to add a new layout.
      * }
-     * @throws FieldNameCollisionException if name already exists.
+     * @throws FieldNameCollisionException If name already exists.
      * @return FlexibleContentBuilder
      * @example
      *
@@ -1410,6 +1412,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Return the manager responsible for this builder's fields.
+     *
      * @return FieldManager
      */
     protected function getFieldManager()
@@ -1455,7 +1459,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *
      * @param string $name Field name.
      * @return FieldBuilder
-     * @throws FieldNotFoundException
+     * @throws FieldNotFoundException If the field name doesn't exist.
      * @api
      */
     public function getField($name)
@@ -1466,12 +1470,11 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     /**
      * Modify an already defined field.
      *
-     * @param  string         $name   Name of the field
+     * @param  string         $name   Name of the field.
      * @param  array|\Closure $modify Array of field configs or a closure that accepts
      * a FieldsBuilder and returns a FieldsBuilder.
-     * @throws ModifyFieldReturnTypeException if $modify is a closure and doesn't
+     * @throws ModifyFieldReturnTypeException If $modify is a closure and doesn't
      * return a FieldsBuilder.
-     * @throws FieldNotFoundException if the field name doesn't exist.
      * @return $this
      * @example
      *
@@ -1495,21 +1498,23 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
         } elseif ($modify instanceof \Closure) {
             $field = $this->getField($name);
 
-            // Initialize Modifying FieldsBuilder
+            // Initialize Modifying FieldsBuilder.
             $modifyBuilder = new FieldsBuilder('');
             $modifyBuilder->addFields([$field]);
 
             /**
+             * The FieldsBuilder returned by the modifying closure.
+             *
              * @var FieldsBuilder
              */
             $modifyBuilder = $modify($modifyBuilder);
 
-            // Check if a FieldsBuilder is returned
+            // Check if a FieldsBuilder is returned.
             if (!$modifyBuilder instanceof FieldsBuilder) {
                 throw new ModifyFieldReturnTypeException(gettype($modifyBuilder));
             }
 
-            // Insert field(s)
+            // Insert field(s).
             $this->getFieldManager()->replaceField($name, $modifyBuilder->getFields());
         }
 
@@ -1519,7 +1524,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     /**
      * Remove a field by name
      *
-     * @param  string $name Field to remove
+     * @param  string $name Field to remove.
      * @return $this
      * @example
      *
@@ -1542,7 +1547,9 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
-     * @param string $name Deeply nested field name
+     * Determine whether a field name refers to a deeply nested field.
+     *
+     * @param string $name Deeply nested field name.
      * @return bool
      */
     private function hasDeeplyNestedField($name)

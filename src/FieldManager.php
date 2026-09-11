@@ -12,12 +12,13 @@ class FieldManager
 {
     /**
      * Array of fields
+     *
      * @var array
      */
     private $fields;
 
     /**
-     * @param array $fields optional default array of field configs
+     * @param array $fields optional default array of field configs.
      */
     public function __construct($fields = [])
     {
@@ -34,6 +35,7 @@ class FieldManager
 
     /**
      * Return int of fields
+     *
      * @return int field count
      */
     public function getCount()
@@ -43,7 +45,8 @@ class FieldManager
 
     /**
      * Add field to end of array
-     * @param  FieldBuilder $field Field array config or Builder
+     *
+     * @param  FieldBuilder $field Field array config or Builder.
      * @return void
      */
     public function pushField($field)
@@ -53,7 +56,8 @@ class FieldManager
 
     /**
      * Remove last field from end of array
-     * @throws \OutOfRangeException if array is empty
+     *
+     * @throws \OutOfRangeException If array is empty.
      * @return FieldBuilder Field array config or Builder
      */
     public function popField()
@@ -68,8 +72,9 @@ class FieldManager
 
     /**
      * Insert of field at a specific index
-     * @param  FieldBuilder|FieldBuilder[] $fields a single field or an array of fields
-     * @param  int $index  insertion point
+     *
+     * @param  FieldBuilder|FieldBuilder[] $fields a single field or an array of fields.
+     * @param  int                         $index  insertion point.
      * @return void
      */
     public function insertFields($fields, $index)
@@ -78,7 +83,7 @@ class FieldManager
             return;
         }
 
-        // If a singular field config, put into an array of fields
+        // If a singular field config, put into an array of fields.
         if ($fields instanceof FieldBuilder) {
             $fields = [$fields];
         }
@@ -92,6 +97,7 @@ class FieldManager
 
     /**
      * Remove a field at a specific index
+     *
      * @param  int $index
      * @return array  removed field
      */
@@ -102,7 +108,8 @@ class FieldManager
 
     /**
      * Remove a speicifc field by name
-     * @param  string $name name of the field
+     *
+     * @param  string $name name of the field.
      * @return void
      */
     public function removeField($name)
@@ -113,9 +120,10 @@ class FieldManager
 
     /**
      * Replace a field with a single field or array of fields
-     * @param  string $name  name of field to replace
-     * @param  FieldBuilder|FieldBuilder[] $field single or array of fields
-     * @throws FieldNotFoundException if the field name doesn't exist
+     *
+     * @param  string                      $name  name of field to replace.
+     * @param  FieldBuilder|FieldBuilder[] $field single or array of fields.
+     * @throws FieldNotFoundException If the field name doesn't exist.
      * @return void
      */
     public function replaceField($name, $field)
@@ -127,7 +135,8 @@ class FieldManager
 
     /**
      * Check to see if a field name already exists
-     * @param  string $name field name
+     *
+     * @param  string $name field name.
      * @return bool
      */
     public function fieldNameExists($name)
@@ -143,7 +152,8 @@ class FieldManager
 
     /**
      * Return a field by name
-     * @param  string $name field name
+     *
+     * @param  string $name field name.
      * @return FieldBuilder
      */
     public function getField($name)
@@ -153,8 +163,9 @@ class FieldManager
 
     /**
      * Modify the configuration of a field
-     * @param  string $name          field name
-     * @param  array $modifications  field configuration
+     *
+     * @param  string $name          field name.
+     * @param  array  $modifications  field configuration.
      * @return void
      */
     public function modifyField($name, $modifications)
@@ -165,6 +176,7 @@ class FieldManager
 
     /**
      * Validate a field
+     *
      * @param  FieldBuilder $field
      * @return bool
      */
@@ -175,8 +187,9 @@ class FieldManager
 
     /**
      * Validates that a field's name doesn't already exist
+     *
      * @param  FieldBuilder $field
-     * @throws FieldNameCollisionException when the name already exists
+     * @throws FieldNameCollisionException When the name already exists.
      * @return bool
      */
     private function validateFieldName($field)
@@ -191,8 +204,9 @@ class FieldManager
 
     /**
      * Return the index in the $this->fields array looked up by the field's name
-     * @param  string $name Field Name
-     * @throws FieldNotFoundException if the field name doesn't exist
+     *
+     * @param  string $name Field Name.
+     * @throws FieldNotFoundException If the field name doesn't exist.
      * @return int Field Index
      */
     public function getFieldIndex($name)

@@ -11,6 +11,7 @@ abstract class Transform
 {
     /**
      * Used to call functions on the builder.
+     *
      * @var \StoutLogic\AcfBuilder\Builder
      */
     private $builder;
@@ -33,7 +34,8 @@ abstract class Transform
 
     /**
      * Implement in all discrete classes
-     * @param  array $config input
+     *
+     * @param  array $config input.
      * @return array output config
      */
     abstract public function transform($config);

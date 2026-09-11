@@ -10,6 +10,9 @@ use StoutLogic\AcfBuilder\Exceptions\FieldNameCollisionException;
 
 class FieldManagerTest extends TestCase
 {
+    /**
+     * @var array
+     */
     private $testFields;
     protected function setup(): void
     {

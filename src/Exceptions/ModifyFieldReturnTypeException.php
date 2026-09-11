@@ -9,9 +9,9 @@ namespace StoutLogic\AcfBuilder\Exceptions;
 class ModifyFieldReturnTypeException extends \UnexpectedValueException
 {
     /**
-     * @param string $returnedType
-     * @param int $code
-     * @param \Exception|null $previous Previous exception
+     * @param string          $returnedType
+     * @param int             $code
+     * @param \Exception|null $previous Previous exception.
      */
     public function __construct($returnedType, $code = 0, $previous = null)
     {

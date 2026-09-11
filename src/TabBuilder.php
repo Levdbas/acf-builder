@@ -4,6 +4,7 @@ namespace StoutLogic\AcfBuilder;
 
 /**
  * Builds configurations for an ACF Field
+ *
  * @api
  */
 class TabBuilder extends FieldBuilder
@@ -13,7 +14,7 @@ class TabBuilder extends FieldBuilder
      *
      * @param string $name Field Name, conventionally 'snake_case'.
      * @param string $type Field Type.
-     * @param array $config Additional Field Configuration.
+     * @param array  $config Additional Field Configuration.
      * @api
      */
     public function __construct($name, $type = 'tab', $config = [])
@@ -50,7 +51,6 @@ class TabBuilder extends FieldBuilder
      * @return $this
      * @api
      */
-
     public function removeEndpoint()
     {
         return $this->setConfig('endpoint', 0);

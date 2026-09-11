@@ -9,6 +9,7 @@ use StoutLogic\AcfBuilder\Exceptions\LayoutNotFoundException;
  * Create a configuration array for an ACF Flexible Content field.
  * A flexible content field can have many different `layouts` which are
  * groups of fields.
+ *
  * @api
  */
 class FlexibleContentBuilder extends FieldBuilder
@@ -23,9 +24,9 @@ class FlexibleContentBuilder extends FieldBuilder
     /**
      * Create a flexible content field builder.
      *
-     * @param string $name Field name
-     * @param string $type Field name
-     * @param array $config Field configuration
+     * @param string $name Field name.
+     * @param string $type Field name.
+     * @param array  $config Field configuration.
      * @api
      */
     public function __construct($name, $type = 'flexible_content', $config = [])
@@ -39,6 +40,7 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * Return a configuration array
+     *
      * @return array
      * @api
      */
@@ -51,6 +53,7 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * Return a configuration array for each layout
+     *
      * @return array
      */
     private function buildLayouts()
@@ -63,7 +66,8 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * Apply transformations to a layout
-     * @param  array $layout Layout configuration array
+     *
+     * @param  array $layout Layout configuration array.
      * @return array Transformed layout configuration array
      */
     private function transformLayout($layout)
@@ -72,17 +76,18 @@ class FlexibleContentBuilder extends FieldBuilder
         $namespaceTransform = new Transform\NamespaceFieldKey($this);
 
         return $namespaceTransform->transform(
-                $layoutTransform->transform($layout)
-            );
+            $layoutTransform->transform($layout)
+        );
     }
 
     /**
      * Add a layout, which is a FieldsBuilder. `addLayout` can be chained to add
      * multiple layouts to the Flexible Content field.
+     *
      * @param string|FieldsBuilder $layout layout name.
      * Alternatively supply a FieldsBuilder to reuse existing fields. The name
      * will be inferred from the FieldsBuilder's name.
-     * @param array $args filed configuration
+     * @param array                $args filed configuration.
      * @return FieldsBuilder
      * @example
      *
@@ -110,6 +115,7 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * Add multiple layouts either via an array or from another builder
+     *
      * @param FieldsBuilder|array $layouts
      * @return $this
      * @api
@@ -124,8 +130,9 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * Configures the layout FieldsBuilder
+     *
      * @param  FieldsBuilder $layout
-     * @param  array         $args FieldGroup Configuration
+     * @param  array         $args FieldGroup Configuration.
      * @return FieldsBuilder Configured Layout
      */
     protected function initializeLayout(FieldsBuilder $layout, $args = [])
@@ -163,6 +170,7 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * Add layout to internal array
+     *
      * @param  FieldsBuilder $layout
      * @return void
      */
@@ -187,7 +195,7 @@ class FlexibleContentBuilder extends FieldBuilder
      *
      * @param string $name Layout name.
      * @return FieldsBuilder
-     * @throws LayoutNotFoundException
+     * @throws LayoutNotFoundException If the layout doesn't exist.
      * @api
      */
     public function getLayout($name)
@@ -205,6 +213,7 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * Generates the default button label.
+     *
      * @return string
      */
     private function getDefaultButtonLabel()
@@ -217,10 +226,9 @@ class FlexibleContentBuilder extends FieldBuilder
      *
      * @param string $name Layout name.
      * @return $this
-     * @throws LayoutNotFoundException
+     * @throws LayoutNotFoundException If the layout doesn't exist.
      * @api
      */
-
     public function removeLayout($name)
     {
         if (!$this->layoutExists($name)) {
@@ -241,7 +249,6 @@ class FlexibleContentBuilder extends FieldBuilder
      * @return bool
      * @api
      */
-
     public function layoutExists($name)
     {
         $layouts = array_filter($this->getLayouts(), static function (FieldsBuilder $layout) use ($name) {
@@ -255,11 +262,9 @@ class FlexibleContentBuilder extends FieldBuilder
      * Modify a layout or nested field.
      *
      * @param string $name
-     * @param array $modify
+     * @param array  $modify
      * @return $this
-     * @throws FieldNotFoundException
-     * @throws LayoutNotFoundException
-     * @throws \Exception
+     * @throws \Exception If $modify is a closure, which isn't supported for layouts or flexible content.
      * @api
      */
     public function modifyField($name, $modify)
@@ -271,7 +276,7 @@ class FlexibleContentBuilder extends FieldBuilder
         }
 
         if ($this->layoutExists($name)) {
-            // Modify layout's FieldsBuilder, update Group Config
+            // Modify layout's FieldsBuilder, update Group Config.
             if (is_array($modify)) {
                 $this->getLayout($name)->updateGroupConfig($modify);
             } elseif ($modify instanceof \Closure) {
@@ -293,7 +298,6 @@ class FlexibleContentBuilder extends FieldBuilder
      * @return $this
      * @api
      */
-
     public function removeField($name)
     {
         if ($this->hasDeeplyNestedField($name)) {
@@ -307,7 +311,7 @@ class FlexibleContentBuilder extends FieldBuilder
     }
 
     /**
-     * @param string $name Deeply nested field name
+     * @param string $name Deeply nested field name.
      * @return bool
      */
     private function hasDeeplyNestedField($name)
