@@ -71,8 +71,7 @@ class FlexibleContentBuilder extends FieldBuilder
         $layoutTransform = new Transform\FlexibleContentLayout($this);
         $namespaceTransform = new Transform\NamespaceFieldKey($this);
 
-        return
-            $namespaceTransform->transform(
+        return $namespaceTransform->transform(
                 $layoutTransform->transform($layout)
             );
     }
@@ -278,7 +277,7 @@ class FlexibleContentBuilder extends FieldBuilder
             } elseif ($modify instanceof \Closure) {
                 throw new \Exception('FieldsBuilder can\'t be modified with a closure.');
             }
-        } else if (is_array($modify)) {
+        } elseif (is_array($modify)) {
             $this->updateConfig($modify);
         } elseif ($modify instanceof \Closure) {
             throw new \Exception('FlexibleContentBuilder can\'t be modified with a closure.');

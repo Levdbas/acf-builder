@@ -9,7 +9,7 @@ use StoutLogic\AcfBuilder\ChoiceFieldBuilder;
 class ChoiceFieldBuilderTest extends TestCase
 {
     use ArraySubsetAsserts;
-    
+
     public function testClassExists()
     {
         $this->assertTrue(class_exists('StoutLogic\AcfBuilder\ChoiceFieldBuilder'));

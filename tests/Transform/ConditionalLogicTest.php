@@ -36,7 +36,6 @@ class ConditionalLogicTest extends TestCase
             ->hasCustomKey()
             ->willReturn(false);
 
-
         $builder = $this->prophesize('\StoutLogic\AcfBuilder\FieldsBuilder');
         $builder
             ->getField('name')
@@ -76,7 +75,6 @@ class ConditionalLogicTest extends TestCase
                         ],
                     ])
                         ->conditional('link_type', '==', 'internal');
-
 
         $expectedConfig = [
             'layouts' => [
@@ -135,7 +133,6 @@ class ConditionalLogicTest extends TestCase
                 ->addTrueFalse('cta_animated')
                 ->conditional('my_custom_key', '==', '1');
 
-
         $expectedConfig = [
             'layouts' => [
                 [
@@ -177,7 +174,6 @@ class ConditionalLogicTest extends TestCase
 
         $config = $builder->build();
         $this->assertArraySubset($expectedConfig, $config);
-
     }
 
     public function testAllowConditionBasedOnParentField()
@@ -194,7 +190,6 @@ class ConditionalLogicTest extends TestCase
             ->addChoices('internal', 'external', 'text')
             ->addTrueFalse('cta_animated')
             ->conditional('hero_type', '==', '1');
-
 
         $expectedConfig = [
             'layouts' => [

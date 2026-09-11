@@ -93,7 +93,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Set a config key -> value pair
-     * 
+     *
      * @param string $key
      * @param mixed $value
      * @return $this
@@ -113,7 +113,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Update multiple config values using and array of key -> value pairs.
-     * 
+     *
      * @param  array $config
      * @return $this
      * @example
@@ -433,7 +433,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
      */
     protected function generateLabel($name)
     {
-        return ucwords(str_replace("_", " ", $name));
+        return ucwords(str_replace('_', ' ', $name));
     }
 
     /**
@@ -443,6 +443,6 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
      */
     protected function generateName($name)
     {
-        return strtolower(str_replace(" ", "_", $name));
+        return strtolower(str_replace(' ', '_', $name));
     }
 }

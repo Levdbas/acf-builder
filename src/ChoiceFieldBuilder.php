@@ -78,7 +78,7 @@ class ChoiceFieldBuilder extends FieldBuilder
             if (is_array($choice)) {
                 $label = array_values($choice)[0];
                 $choice = array_keys($choice)[0];
-            } else if (is_string($key)) {
+            } elseif (is_string($key)) {
                 $choice = $key;
                 $label = $value;
             }

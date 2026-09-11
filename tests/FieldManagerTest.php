@@ -89,7 +89,7 @@ class FieldManagerTest extends TestCase
     public function testRemovingFieldNotFound()
     {
         $this->expectException(FieldNotFoundException::class);
-        
+
         $subject = new FieldManager([
             $this->testFields['test1'],
             $this->testFields['test2'],
@@ -201,7 +201,7 @@ class FieldManagerTest extends TestCase
         ]);
 
         $subject->modifyField('test1', ['label' => 'new label']);
-        
+
         $this->assertEquals([
             'key' => 'field_test1',
             'name' => 'test1',
@@ -213,7 +213,7 @@ class FieldManagerTest extends TestCase
     public function testValidateFieldName()
     {
         $this->expectException(FieldNameCollisionException::class);
-        
+
         $subject = new FieldManager([
             $this->testFields['test1'],
             $this->testFields['test2'],

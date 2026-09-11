@@ -83,7 +83,6 @@ class FieldManager
             $fields = [$fields];
         }
 
-
         foreach ($fields as $i => $field) {
             if ($this->validateField($field)) {
                 array_splice($this->fields, $index + $i, 0, [$field]);
