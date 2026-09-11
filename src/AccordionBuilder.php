@@ -9,6 +9,8 @@ namespace StoutLogic\AcfBuilder;
 class AccordionBuilder extends TabBuilder
 {
     /**
+        * Create an accordion field builder.
+        *
      * @api
      */
     public function __construct($name, $type = 'accordion', $config = [])
@@ -17,9 +19,11 @@ class AccordionBuilder extends TabBuilder
     }
 
     /**
-
+        * Set whether the accordion is open by default.
+        *
+        * @param bool|int $value Whether the accordion should be open.
+        * @return $this
      * @api
-
      */
 
     public function setOpen($value = 1)
@@ -28,9 +32,11 @@ class AccordionBuilder extends TabBuilder
     }
 
     /**
-
+        * Set whether multiple accordion sections may be expanded.
+        *
+        * @param bool|int $value Whether multiple sections may be expanded.
+        * @return $this
      * @api
-
      */
 
     public function setMultiExpand($value = 1)

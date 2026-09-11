@@ -175,6 +175,13 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
      */
 
+    /**
+     * Set a custom field key without applying the automatic namespace.
+     *
+     * @param string $key Custom field key.
+     * @return $this
+     * @api
+     */
     public function setCustomKey($key)
     {
         return $this

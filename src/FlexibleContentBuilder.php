@@ -15,12 +15,14 @@ class FlexibleContentBuilder extends FieldBuilder
 {
     use Traits\CanSingularize;
 
-    /**
-     * @var array
+     /**
+      * @var array
      */
     private $layouts = [];
 
     /**
+        * Create a flexible content field builder.
+        *
      * @param string $name Field name
      * @param string $type Field name
      * @param array $config Field configuration
@@ -207,9 +209,12 @@ class FlexibleContentBuilder extends FieldBuilder
     }
 
     /**
-
+     * Remove a layout by name.
+     *
+     * @param string $name Layout name.
+     * @return $this
+     * @throws LayoutNotFoundException
      * @api
-
      */
 
     public function removeLayout($name)
@@ -226,9 +231,11 @@ class FlexibleContentBuilder extends FieldBuilder
     }
 
     /**
-
+     * Determine whether a layout exists in this field.
+     *
+     * @param string $name Layout name.
+     * @return bool
      * @api
-
      */
 
     public function layoutExists($name)
@@ -274,9 +281,11 @@ class FlexibleContentBuilder extends FieldBuilder
     }
 
     /**
-
+     * Remove a layout or nested field by name.
+     *
+     * @param string $name Layout or nested field name.
+     * @return $this
      * @api
-
      */
 
     public function removeField($name)

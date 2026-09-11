@@ -19,6 +19,8 @@ class GroupBuilder extends FieldBuilder
     protected $fieldsBuilder;
 
     /**
+        * Create a group field builder.
+        *
      * @param string $name Field name
      * @param string $type Field name
      * @param array $config Field configuration
@@ -138,9 +140,11 @@ class GroupBuilder extends FieldBuilder
     }
 
     /**
-
+     * Return a nested field by name.
+     *
+     * @param string $name Field name.
+     * @return FieldBuilder
      * @api
-
      */
 
     public function getField($name)
@@ -149,9 +153,11 @@ class GroupBuilder extends FieldBuilder
     }
 
     /**
-
+     * Determine whether a nested field exists.
+     *
+     * @param string $name Field name.
+     * @return bool
      * @api
-
      */
 
     public function fieldExists($name)

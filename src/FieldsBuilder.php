@@ -39,6 +39,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     const DEEP_NESTING_DELIMITER = '->';
 
     /**
+     * Create a field-group builder.
+     *
      * @param string $name Field Group name
      * @param array $groupConfig Field Group configuration
      * @api
@@ -51,6 +53,19 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
         $this->setGroupConfig('title', $this->generateLabel($name));
 
         $this->config = array_merge($this->config, $groupConfig);
+    }
+
+    /**
+     * Update multiple field group configuration values.
+     *
+     * @param array $config Group configuration values.
+     * @return $this
+     * @api
+     */
+    public function updateGroupConfig($config)
+    {
+        $this->config = array_merge($this->config, $config);
+        return $this;
     }
 
     /**
@@ -88,12 +103,6 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      * @api
 
      */
-
-    public function updateGroupConfig($config)
-    {
-        $this->config = array_merge($this->config, $config);
-        return $this;
-    }
 
     /**
      * @return string
@@ -267,6 +276,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a button group field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -645,6 +656,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a post object field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -669,6 +682,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a page link field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -693,6 +708,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a relationship field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -719,6 +736,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a taxonomy field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -744,6 +763,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a user field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -766,6 +787,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a date picker field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -789,6 +812,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a time picker field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -809,6 +834,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a date-time picker field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -831,6 +858,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a color picker field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -852,6 +881,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a Google Map field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -874,6 +905,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a link field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -891,6 +924,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a range field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -910,6 +945,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a tab field.
+     *
      * All fields added after will appear under this tab, until another tab
      * is added.
      * @param string $label Tab label
@@ -931,6 +968,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add an accordion field.
+     *
      * All fields added after will appear under this accordion, until
      * another accordion is added.
      * @param string $label Accordion label
@@ -952,6 +991,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a message field with the supplied content.
+     *
      * Adds a message field
      *
      * @param string $label
@@ -981,6 +1022,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Add a group field.
+     *
      * @param string $name
      * @param array $args field configuration
      * @throws FieldNameCollisionException if name already exists.
@@ -1059,6 +1102,20 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Determine whether a field exists in this builder.
+     *
+     * @param string $name Field name.
+     * @return bool
+     * @api
+     */
+    public function fieldExists($name)
+    {
+        return $this->getFieldManager()->fieldNameExists($name);
+    }
+
+    /**
+     * Return all fields currently registered with this builder.
+     *
      * @return FieldBuilder[]
      * @api
      */
@@ -1077,8 +1134,11 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
-     * @param string $name [description]
+     * Return a field by name.
+     *
+     * @param string $name Field name.
      * @return FieldBuilder
+     * @throws FieldNotFoundException
      * @api
      */
     public function getField($name)
@@ -1087,18 +1147,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
-
-     * @api
-
-     */
-
-    public function fieldExists($name)
-    {
-        return $this->getFieldManager()->fieldNameExists($name);
-    }
-
-    /**
-     * Modify an already defined field
+     * Modify an already defined field.
      * @param  string $name   Name of the field
      * @param  array|\Closure  $modify Array of field configs or a closure that accepts
      * a FieldsBuilder and returns a FieldsBuilder.
@@ -1211,7 +1260,9 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
-     * @return LocationBuilder
+     * Return the configured field-group location builder.
+     *
+     * @return LocationBuilder|null
      * @api
      */
     public function getLocation()
@@ -1245,6 +1296,12 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
 
      */
 
+    /**
+     * Clone the builder and its field manager.
+     *
+     * @return void
+     * @api
+     */
     public function __clone()
     {
         $this->fieldManager = clone $this->fieldManager;

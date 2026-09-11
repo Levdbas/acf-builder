@@ -9,14 +9,18 @@ namespace StoutLogic\AcfBuilder;
 class ChoiceFieldBuilder extends FieldBuilder
 {
     /**
-     * @var array
+     /**
+      * @var array
      */
     private $choices = [];
 
     /**
+        * Create a choice field builder.
+        *
      * @param string $name Field Name, conventionally 'snake_case'.
      * @param string $type Field Type.
      * @param array $config Additional Field Configuration.
+    * @return void
      * @api
      */
     public function __construct($name, $type, $config = [])
