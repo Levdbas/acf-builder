@@ -5,8 +5,8 @@ namespace StoutLogic\AcfBuilder\Tests;
 use PHPUnit\Framework\TestCase;
 use StoutLogic\AcfBuilder\FieldManager;
 use StoutLogic\AcfBuilder\FieldBuilder;
-use StoutLogic\AcfBuilder\FieldNotFoundException;
-use StoutLogic\AcfBuilder\FieldNameCollisionException;
+use StoutLogic\AcfBuilder\Exceptions\FieldNotFoundException;
+use StoutLogic\AcfBuilder\Exceptions\FieldNameCollisionException;
 
 class FieldManagerTest extends TestCase
 {

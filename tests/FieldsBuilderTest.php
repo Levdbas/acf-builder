@@ -4,9 +4,9 @@ namespace StoutLogic\AcfBuilder\Tests;
 
 use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use PHPUnit\Framework\TestCase;
-use StoutLogic\AcfBuilder\FieldNotFoundException;
+use StoutLogic\AcfBuilder\Exceptions\FieldNotFoundException;
 use StoutLogic\AcfBuilder\FieldsBuilder;
-use StoutLogic\AcfBuilder\ModifyFieldReturnTypeException;
+use StoutLogic\AcfBuilder\Exceptions\ModifyFieldReturnTypeException;
 
 class FieldsBuilderTest extends TestCase
 {

@@ -6,7 +6,7 @@ use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use PHPUnit\Framework\TestCase;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use StoutLogic\AcfBuilder\GroupBuilder;
-use StoutLogic\AcfBuilder\FieldNotFoundException;
+use StoutLogic\AcfBuilder\Exceptions\FieldNotFoundException;
 
 class GroupBuilderTest extends TestCase
 {

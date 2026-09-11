@@ -2,6 +2,9 @@
 
 namespace StoutLogic\AcfBuilder;
 
+use StoutLogic\AcfBuilder\Exceptions\FieldNameCollisionException;
+use StoutLogic\AcfBuilder\Exceptions\FieldNotFoundException;
+
 /**
  * Manages an array of field configs
  */
