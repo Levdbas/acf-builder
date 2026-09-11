@@ -3,7 +3,7 @@
 namespace StoutLogic\AcfBuilder\Transform;
 
 /**
- * Transform applies to all leafs in array, at specific keys
+ * Transform applies to all leaf nodes in array, at specific keys
  * using array_walk_recursive
  */
 abstract class RecursiveTransform extends Transform
@@ -31,7 +31,7 @@ abstract class RecursiveTransform extends Transform
      */
     public function transform($config)
     {
-        foreach ($config as $key => $value ) {
+        foreach ($config as $key => $value) {
             if ($this->shouldTransformValue($key, $config)) {
                 $config = $this->transformConfig($config);
                 $config[$key] = $this->transformValue($value);
@@ -69,7 +69,7 @@ abstract class RecursiveTransform extends Transform
     }
 
     /**
-     * Impelment this in all discrete classes
+     * Implement this in all discrete classes
      * @param  mixed $value input
      * @return mixed output value
      */

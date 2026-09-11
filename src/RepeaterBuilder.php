@@ -69,7 +69,7 @@ class RepeaterBuilder extends GroupBuilder
     }
 
     /**
-     * Gerenates the default button label.
+     * Generates the default button label.
      * @return string
      */
     private function getDefaultButtonLabel()
