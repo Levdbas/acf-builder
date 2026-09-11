@@ -27,6 +27,6 @@ class ParentDelegationBuilderTest extends TestCase
         $child->setParentContext($parent);
 
         $this->expectException('\Exception');
-        $child->nonExistantParentMethod();
+        $child->nonExistentParentMethod();
     }
 }

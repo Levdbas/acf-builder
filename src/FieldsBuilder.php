@@ -549,7 +549,8 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
-     * Addes a message field
+     * Adds a message field
+     * 
      * @param string $label
      * @param string $message
      * @param array $args field configuration
