@@ -2,9 +2,13 @@
 
 namespace StoutLogic\AcfBuilder;
 
+use StoutLogic\AcfBuilder\Exceptions\FieldNotFoundException;
+use StoutLogic\AcfBuilder\Exceptions\ModifyFieldReturnTypeException;
+
 /**
  * Group field
  * Can add multiple fields as subfields to the group.
+ * @api
  */
 class GroupBuilder extends FieldBuilder
 {
@@ -18,6 +22,7 @@ class GroupBuilder extends FieldBuilder
      * @param string $name Field name
      * @param string $type Field name
      * @param array $config Field configuration
+     * @api
      */
     public function __construct($name, $type = 'group', $config = [])
     {
@@ -30,6 +35,7 @@ class GroupBuilder extends FieldBuilder
      * Add multiple fields either via an array or from another builder
      * @param array|FieldsBuilder $fields
      * @return $this
+     * @api
      */
     public function addFields($fields)
     {
@@ -40,6 +46,7 @@ class GroupBuilder extends FieldBuilder
     /**
      * Return a group field configuration array
      * @return array
+     * @api
      */
     public function build()
     {
@@ -52,6 +59,7 @@ class GroupBuilder extends FieldBuilder
     /**
      * Returns call chain to parentContext
      * @return FieldBuilder
+     * @api
      */
     public function endGroup()
     {
@@ -61,6 +69,7 @@ class GroupBuilder extends FieldBuilder
     /**
      * Returns call chain to parentContext
      * @return FieldBuilder
+     * @api
      */
     public function end()
     {
@@ -73,6 +82,7 @@ class GroupBuilder extends FieldBuilder
      * @param  string $method
      * @param  array $args
      * @return mixed
+     * @api
      */
     public function __call($method, $args)
     {
@@ -95,16 +105,17 @@ class GroupBuilder extends FieldBuilder
     {
         return call_user_func_array([$this->fieldsBuilder, $method], $args);
     }
-    
+
     /**
      * Remove a field by name
      * @param  string $name Field to remove
      * @return $this
+     * @api
      */
     public function removeField($name)
     {
         $this->fieldsBuilder->removeField($name);
-        
+
         return $this;
     }
 
@@ -117,6 +128,7 @@ class GroupBuilder extends FieldBuilder
      * return a FieldsBuilder.
      * @throws FieldNotFoundException if the field name doesn't exist.
      * @return $this
+     * @api
      */
     public function modifyField($name, $modify)
     {
@@ -125,12 +137,25 @@ class GroupBuilder extends FieldBuilder
         return $this;
     }
 
+    /**
+
+     * @api
+
+     */
+
     public function getField($name)
     {
         return $this->fieldsBuilder->getField($name);
     }
 
-    public function fieldExists($name) {
+    /**
+
+     * @api
+
+     */
+
+    public function fieldExists($name)
+    {
         return $this->fieldsBuilder->fieldExists($name);
     }
 }

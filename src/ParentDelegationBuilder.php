@@ -5,6 +5,7 @@ namespace StoutLogic\AcfBuilder;
 /**
  * Builds a configuration.
  * Can have parent contexts to delegate missing methods to.
+ * @api
  */
 abstract class ParentDelegationBuilder implements Builder
 {
@@ -17,11 +18,13 @@ abstract class ParentDelegationBuilder implements Builder
     /**
      * Builds the configuration
      * @return array configuration
+     * @api
      */
     abstract public function build();
 
     /**
      * @param Builder $builder
+     * @api
      */
     public function setParentContext(Builder $builder)
     {
@@ -30,6 +33,7 @@ abstract class ParentDelegationBuilder implements Builder
 
     /**
      * @return Builder
+     * @api
      */
     public function getParentContext()
     {
@@ -39,6 +43,7 @@ abstract class ParentDelegationBuilder implements Builder
     /**
      * Returns the root context
      * @return Builder
+     * @api
      */
     public function getRootContext()
     {
@@ -59,6 +64,7 @@ abstract class ParentDelegationBuilder implements Builder
      * @param  array $args
      * @throws \Exception when a method is not found on the $parentContext
      * @return mixed
+     * @api
      */
     public function __call($method, $args)
     {
@@ -66,6 +72,6 @@ abstract class ParentDelegationBuilder implements Builder
             return call_user_func_array([$this->parentContext, $method], $args);
         }
 
-        throw new \Exception('No such function: '.$method);
+        throw new \Exception('No such function: ' . $method);
     }
 }

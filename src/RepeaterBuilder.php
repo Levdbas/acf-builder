@@ -5,6 +5,7 @@ namespace StoutLogic\AcfBuilder;
 /**
  * Repeater field
  * Can add multiple fields as subfields to the repeater.
+ * @api
  */
 class RepeaterBuilder extends GroupBuilder
 {
@@ -20,6 +21,7 @@ class RepeaterBuilder extends GroupBuilder
      * @param string $name Field name
      * @param string $type Field name
      * @param array $config Field configuration
+     * @api
      */
     public function __construct($name, $type = 'repeater', $config = [])
     {
@@ -33,6 +35,7 @@ class RepeaterBuilder extends GroupBuilder
     /**
      * Return a repeater field configuration array
      * @return array
+     * @api
      */
     public function build()
     {
@@ -54,6 +57,15 @@ class RepeaterBuilder extends GroupBuilder
     /**
      * Returns call chain to parentContext
      * @return Builder
+     * @example
+     *
+     * ```php
+     * $fields
+     *  ->addRepeater('slides')
+     *  ->addText('title')
+     *  ->endRepeater();
+     * ```
+     * @api
      */
     public function endRepeater()
     {
@@ -62,6 +74,7 @@ class RepeaterBuilder extends GroupBuilder
 
     /**
      * @inheritdoc
+     * @api
      */
     public function end()
     {

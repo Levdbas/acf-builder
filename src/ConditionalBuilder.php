@@ -5,6 +5,7 @@ namespace StoutLogic\AcfBuilder;
 /**
  * @method ConditionalBuilder and(string $name, string $operator, string $value)
  * @method ConditionalBuilder or(string $name, string $operator, string $value)
+ * @api
  */
 class ConditionalBuilder extends ParentDelegationBuilder
 {
@@ -19,6 +20,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
      * @param string $name
      * @param string $operator
      * @param string $value
+     * @api
      */
     public function __construct($name, $operator, $value)
     {
@@ -28,6 +30,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
     /**
      * Build the config
      * @return array
+     * @api
      */
     public function build()
     {
@@ -40,6 +43,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
      * @param  string $operator
      * @param  string $value
      * @return $this
+     * @api
      */
     public function andCondition($name, $operator, $value)
     {
@@ -56,6 +60,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
      * @param  string $operator
      * @param  string $value
      * @return $this
+     * @api
      */
     public function orCondition($name, $operator, $value)
     {
@@ -106,6 +111,7 @@ class ConditionalBuilder extends ParentDelegationBuilder
      * @param string $methodName
      * @param array $arguments
      * @return mixed
+     * @api
      */
     public function __call($methodName, $arguments)
     {

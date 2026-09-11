@@ -2,10 +2,14 @@
 
 namespace StoutLogic\AcfBuilder;
 
+use StoutLogic\AcfBuilder\Exceptions\FieldNotFoundException;
+use StoutLogic\AcfBuilder\Exceptions\LayoutNotFoundException;
+
 /**
  * Create a configuration array for an ACF Flexible Content field.
  * A flexible content field can have many different `layouts` which are
  * groups of fields.
+ * @api
  */
 class FlexibleContentBuilder extends FieldBuilder
 {
@@ -20,6 +24,7 @@ class FlexibleContentBuilder extends FieldBuilder
      * @param string $name Field name
      * @param string $type Field name
      * @param array $config Field configuration
+     * @api
      */
     public function __construct($name, $type = 'flexible_content', $config = [])
     {
@@ -33,6 +38,7 @@ class FlexibleContentBuilder extends FieldBuilder
     /**
      * Return a configuration array
      * @return array
+     * @api
      */
     public function build()
     {
@@ -77,6 +83,15 @@ class FlexibleContentBuilder extends FieldBuilder
      * will be inferred from the FieldsBuilder's name.
      * @param array $args filed configuration
      * @return FieldsBuilder
+     * @example
+     *
+     * ```php
+     * $fields
+     *  ->addFlexibleContent('sections')
+     *  ->addLayout('hero')
+     *  ->addText('title');
+     * ```
+     * @api
      */
     public function addLayout($layout, $args = [])
     {
@@ -96,6 +111,7 @@ class FlexibleContentBuilder extends FieldBuilder
      * Add multiple layouts either via an array or from another builder
      * @param FieldsBuilder|array $layouts
      * @return $this
+     * @api
      */
     public function addLayouts($layouts)
     {
@@ -127,7 +143,17 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * End the current Flexible Content field, return to parent context
+     *
      * @return Builder
+     * @example
+     *
+     * ```php
+     * $fields
+     *  ->addFlexibleContent('sections')
+     *  ->addLayout('hero')
+     *  ->endFlexibleContent();
+     * ```
+     * @api
      */
     public function endFlexibleContent()
     {
@@ -146,6 +172,7 @@ class FlexibleContentBuilder extends FieldBuilder
 
     /**
      * @return FieldsBuilder[]
+     * @api
      */
     public function getLayouts()
     {
@@ -155,10 +182,11 @@ class FlexibleContentBuilder extends FieldBuilder
     /**
      * @return FieldsBuilder
      * @throws LayoutNotFoundException
+     * @api
      */
     public function getLayout($name)
     {
-        $layouts = array_filter($this->getLayouts(), static function(FieldsBuilder $layout) use ($name) {
+        $layouts = array_filter($this->getLayouts(), static function (FieldsBuilder $layout) use ($name) {
             return $layout->getName() === $name;
         });
 
@@ -178,22 +206,34 @@ class FlexibleContentBuilder extends FieldBuilder
         return 'Add ' . $this->singularize($this->getLabel());
     }
 
+    /**
+
+     * @api
+
+     */
+
     public function removeLayout($name)
     {
         if (!$this->layoutExists($name)) {
             throw new LayoutNotFoundException("Layout `{$name}` not found.");
         }
 
-        $this->layouts = array_values(array_filter($this->getLayouts(), static function(FieldsBuilder $layout) use ($name) {
+        $this->layouts = array_values(array_filter($this->getLayouts(), static function (FieldsBuilder $layout) use ($name) {
             return $layout->getName() !== $name;
         }));
 
         return $this;
     }
 
+    /**
+
+     * @api
+
+     */
+
     public function layoutExists($name)
     {
-        $layouts = array_filter($this->getLayouts(), static function(FieldsBuilder $layout) use ($name) {
+        $layouts = array_filter($this->getLayouts(), static function (FieldsBuilder $layout) use ($name) {
             return $layout->getName() === $name;
         });
 
@@ -207,6 +247,7 @@ class FlexibleContentBuilder extends FieldBuilder
      * @throws FieldNotFoundException
      * @throws LayoutNotFoundException
      * @throws \Exception
+     * @api
      */
     public function modifyField($name, $modify)
     {
@@ -223,8 +264,7 @@ class FlexibleContentBuilder extends FieldBuilder
             } elseif ($modify instanceof \Closure) {
                 throw new \Exception('FieldsBuilder can\'t be modified with a closure.');
             }
-        }
-        else if (is_array($modify)) {
+        } else if (is_array($modify)) {
             $this->updateConfig($modify);
         } elseif ($modify instanceof \Closure) {
             throw new \Exception('FlexibleContentBuilder can\'t be modified with a closure.');
@@ -232,6 +272,12 @@ class FlexibleContentBuilder extends FieldBuilder
 
         return $this;
     }
+
+    /**
+
+     * @api
+
+     */
 
     public function removeField($name)
     {
@@ -253,6 +299,4 @@ class FlexibleContentBuilder extends FieldBuilder
     {
         return strpos($name, FieldsBuilder::DEEP_NESTING_DELIMITER) > 0;
     }
-
-
 }
