@@ -5,7 +5,6 @@ namespace StoutLogic\AcfBuilder\Exceptions;
 /**
  * When a closure is passed to FieldsBuilder::modifyField, the closure
  * must return a FieldsBuilder or this exception is thrown.
- * @api
  */
 class ModifyFieldReturnTypeException extends \UnexpectedValueException
 {
@@ -13,7 +12,6 @@ class ModifyFieldReturnTypeException extends \UnexpectedValueException
      * @param string $returnedType
      * @param int $code
      * @param \Exception|null $previous Previous exception
-     * @api
      */
     public function __construct($returnedType, $code = 0, $previous = null)
     {
