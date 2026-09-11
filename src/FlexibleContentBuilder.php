@@ -15,14 +15,14 @@ class FlexibleContentBuilder extends FieldBuilder
 {
     use Traits\CanSingularize;
 
-     /**
-      * @var array
+    /**
+     * @var array
      */
     private $layouts = [];
 
     /**
-        * Create a flexible content field builder.
-        *
+     * Create a flexible content field builder.
+     *
      * @param string $name Field name
      * @param string $type Field name
      * @param array $config Field configuration

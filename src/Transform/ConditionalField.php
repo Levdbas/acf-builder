@@ -30,11 +30,11 @@ class ConditionalField extends RecursiveTransform
 
     public function transformValue($value)
     {
-        if ($this->getBuilder()->fieldExists($value)){
+        if ($this->getBuilder()->fieldExists($value)) {
             return $this->getBuilder()->getField($value)->getKey();
         }
 
-       return $value;
+        return $value;
     }
 
     public function transformConfig($config)

@@ -23,10 +23,10 @@ abstract class ParentDelegationBuilder implements Builder
     abstract public function build();
 
     /**
-        * Set the parent builder used for delegated method calls.
-        *
+     * Set the parent builder used for delegated method calls.
+     *
      * @param Builder $builder
-        * @return void
+     * @return void
      * @api
      */
     public function setParentContext(Builder $builder)

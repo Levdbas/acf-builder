@@ -9,8 +9,8 @@ namespace StoutLogic\AcfBuilder;
 class TabBuilder extends FieldBuilder
 {
     /**
-        * Create a tab or accordion field builder.
-        *
+     * Create a tab or accordion field builder.
+     *
      * @param string $name Field Name, conventionally 'snake_case'.
      * @param string $type Field Type.
      * @param array $config Additional Field Configuration.
@@ -28,8 +28,8 @@ class TabBuilder extends FieldBuilder
 
     /**
      * Mark this tab as the endpoint of a tab group.
-    *
-    * @return $this
+     *
+     * @return $this
      *
      * @example
      * ```php

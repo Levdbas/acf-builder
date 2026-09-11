@@ -11,15 +11,15 @@ class RepeaterBuilder extends GroupBuilder
 {
     use Traits\CanSingularize;
 
-     /**
-      * Used to contain and add fields
+    /**
+     * Used to contain and add fields
      * @var FieldsBuilder
      */
     protected $fieldsBuilder;
 
     /**
-        * Create a repeater field builder.
-        *
+     * Create a repeater field builder.
+     *
      * @param string $name Field name
      * @param string $type Field name
      * @param array $config Field configuration
@@ -76,7 +76,7 @@ class RepeaterBuilder extends GroupBuilder
 
     /**
      * @inheritdoc
-        * @return Builder
+     * @return Builder
      * @api
      */
     public function end()

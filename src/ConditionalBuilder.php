@@ -17,8 +17,8 @@ class ConditionalBuilder extends ParentDelegationBuilder
 
     /**
      * Creates the first rule. Additional rules can be chained use `or` and `and`
-        *
-        * @return void
+     *
+     * @return void
      * @param string $name
      * @param string $operator
      * @param string $value

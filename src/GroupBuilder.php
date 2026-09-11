@@ -19,8 +19,8 @@ class GroupBuilder extends FieldBuilder
     protected $fieldsBuilder;
 
     /**
-        * Create a group field builder.
-        *
+     * Create a group field builder.
+     *
      * @param string $name Field name
      * @param string $type Field name
      * @param array $config Field configuration
