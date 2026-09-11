@@ -23,6 +23,7 @@ namespace StoutLogic\AcfBuilder;
  * @method FieldBuilder addSelect(string $name, array $args = [])
  * @method FieldBuilder addRadio(string $name, array $args = [])
  * @method FieldBuilder addCheckbox(string $name, array $args = [])
+ * @method FieldBuilder addButtonGroup(string $name, array $args = [])
  * @method FieldBuilder addPostObject(string $name, array $args = [])
  * @method FieldBuilder addPageLink(string $name, array $args = [])
  * @method FieldBuilder addTaxonomy(string $name, array $args = [])
@@ -64,11 +65,14 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
      * @param string $type Field Type.
      * @param array  $config Additional Field Configuration.
      */
-    public function __construct($name, /**
-                                        * Field Type
-                                        */
-    private $type, $config = [])
-    {
+    public function __construct(
+        $name,
+        /**
+         * Field Type
+         */
+        private $type,
+        $config = []
+    ) {
         $this->config = [
             'name' => $name,
             'label' => $this->generateLabel($name),
