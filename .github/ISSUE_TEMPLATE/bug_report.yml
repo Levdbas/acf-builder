@@ -1,0 +1,70 @@
+name: Bug report
+description: Report unexpected ACF Builder behavior
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please provide a small, complete example that reproduces the behavior.
+
+        For support or usage questions, please use the project's GitHub Discussions instead.
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: Describe the result you expected from ACF Builder.
+    validations:
+      required: true
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual behavior
+      description: Describe what happened instead. Include the error message or stack trace when available.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include a minimal configuration snippet and the steps needed to observe the issue.
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: input
+    id: acf-builder-version
+    attributes:
+      label: ACF Builder version
+      placeholder: "Example: 1.12.0"
+    validations:
+      required: true
+  - type: input
+    id: acf-version
+    attributes:
+      label: Advanced Custom Fields version
+      placeholder: "Example: ACF Pro 6.2.0"
+    validations:
+      required: false
+  - type: input
+    id: wordpress-version
+    attributes:
+      label: WordPress version
+      placeholder: "Example: 6.5"
+    validations:
+      required: false
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP version
+      placeholder: "Example: 8.2"
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other details that may help diagnose the issue.
+    validations:
+      required: false
