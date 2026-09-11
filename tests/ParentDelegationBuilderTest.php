@@ -11,7 +11,8 @@ class ParentDelegationBuilderTest extends TestCase
     {
         $parent = $this
             ->getMockBuilder('StoutLogic\AcfBuilder\ParentDelegationBuilder')
-            ->setMethods(['parentMethod', 'build'])
+            ->onlyMethods(['build'])
+            ->addMethods(['parentMethod'])
             ->getMockForAbstractClass();
         $child = $this->getMockForAbstractClass('StoutLogic\AcfBuilder\ParentDelegationBuilder');
         $child->setParentContext($parent);
