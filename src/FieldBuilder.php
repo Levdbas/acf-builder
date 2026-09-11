@@ -46,6 +46,7 @@ namespace StoutLogic\AcfBuilder;
  * @method FlexibleContentBuilder addFlexibleContent(string $name, array $args = [])
  * @method FieldsBuilder addLayout(string|FieldsBuilder $layout, array $args = [])
  * @method LocationBuilder setLocation(string $param, string $operator, string $value)
+ * @mixin \StoutLogic\AcfBuilder\FieldsBuilder
  */
 class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 {
