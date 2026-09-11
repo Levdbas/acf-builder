@@ -35,6 +35,8 @@ abstract class ParentDelegationBuilder implements Builder
     }
 
     /**
+     * Return the parent builder context.
+     *
      * @return Builder
      * @api
      */

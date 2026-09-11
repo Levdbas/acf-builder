@@ -173,6 +173,8 @@ class FlexibleContentBuilder extends FieldBuilder
     }
 
     /**
+     * Return all layouts in this flexible content field.
+     *
      * @return FieldsBuilder[]
      * @api
      */
@@ -182,6 +184,9 @@ class FlexibleContentBuilder extends FieldBuilder
     }
 
     /**
+     * Return a layout by name.
+     *
+     * @param string $name Layout name.
      * @return FieldsBuilder
      * @throws LayoutNotFoundException
      * @api
@@ -248,6 +253,8 @@ class FlexibleContentBuilder extends FieldBuilder
     }
 
     /**
+     * Modify a layout or nested field.
+     *
      * @param string $name
      * @param array $modify
      * @return $this

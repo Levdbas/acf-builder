@@ -81,6 +81,8 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Return the field configuration values.
+     *
      * @return array
      * @api
      */
@@ -91,6 +93,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Set a config key -> value pair
+     * 
      * @param string $key
      * @param mixed $value
      * @return $this
@@ -110,6 +113,7 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
 
     /**
      * Update multiple config values using and array of key -> value pairs.
+     * 
      * @param  array $config
      * @return $this
      * @example
@@ -128,6 +132,8 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Return the field name.
+     *
      * @return string
      * @api
      */
@@ -137,6 +143,8 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Return the field key.
+     *
      * @return string
      * @api
      */
@@ -146,6 +154,8 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Return the field label.
+     *
      * @return string
      * @api
      */
@@ -170,12 +180,6 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
-
-     * @api
-
-     */
-
-    /**
      * Set a custom field key without applying the automatic namespace.
      *
      * @param string $key Custom field key.
@@ -190,6 +194,8 @@ class FieldBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
+     * Determine whether this field has a custom key.
+     *
      * @return bool
      * @api
      */

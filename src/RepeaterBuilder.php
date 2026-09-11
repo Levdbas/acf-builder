@@ -75,6 +75,8 @@ class RepeaterBuilder extends GroupBuilder
     }
 
     /**
+     * Return to the parent builder context.
+     *
      * @inheritdoc
      * @return Builder
      * @api
