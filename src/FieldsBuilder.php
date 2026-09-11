@@ -279,7 +279,7 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
     }
 
     /**
-     * Add a button group field.
+     * Add a text field.
      *
      * @param string $name
      * @param array  $args {
@@ -690,6 +690,9 @@ class FieldsBuilder extends ParentDelegationBuilder implements NamedBuilder
      *      Field configuration options.
      *
      *     @type array<string, string> $choices Array of choice value => label pairs.
+     *     @type string|array $default_value Default selected value(s).
+     *     @type string $return_format Format of the returned value: `value` or `label`.
+     *     @type int|bool $multiple Whether multiple choices can be selected.
      *     @type int|bool $allow_null Whether to allow an empty selection.
      *     @type int|bool $ui Whether to use the stylized Select2 UI.
      *     @type int|bool $ajax Whether to load choices via AJAX.
